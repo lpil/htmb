@@ -42,17 +42,21 @@ pub fn h(
 
 pub fn text(content: String) -> Html {
   content
-  |> escape("", _)
+  |> do_escape("", _)
   |> string_builder.from_string
   |> dangerous_unescaped_fragment
 }
 
-pub fn escape(escaped: String, content: String) -> String {
+pub fn escape(content: String) -> String {
+  do_escape("", content)
+}
+
+fn do_escape(escaped: String, content: String) -> String {
   case string.pop_grapheme(content) {
-    Ok(#("<", xs)) -> escape(escaped <> "&lt;", xs)
-    Ok(#(">", xs)) -> escape(escaped <> "&gt;", xs)
-    Ok(#("&", xs)) -> escape(escaped <> "&amp;", xs)
-    Ok(#(x, xs)) -> escape(escaped <> x, xs)
+    Ok(#("<", xs)) -> do_escape(escaped <> "&lt;", xs)
+    Ok(#(">", xs)) -> do_escape(escaped <> "&gt;", xs)
+    Ok(#("&", xs)) -> do_escape(escaped <> "&amp;", xs)
+    Ok(#(x, xs)) -> do_escape(escaped <> x, xs)
     Error(_) -> escaped <> content
   }
 }
