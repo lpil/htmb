@@ -19,7 +19,7 @@
 //// - [React Gleam](https://hex.pm/packages/react_gleam)
 //// 
 
-import gleam/string_builder.{StringBuilder}
+import gleam/string_builder.{type StringBuilder}
 import gleam/string
 import gleam/list
 
