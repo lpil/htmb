@@ -1,5 +1,5 @@
 name = "htmb"
-version = "1.0.1"
+version = "1.1.0"
 gleam = ">= 0.32.0"
 description = "A tiny HTML builder for Gleam"
 licences = ["Apache-2.0"]
