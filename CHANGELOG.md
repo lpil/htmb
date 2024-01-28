@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- [Void elements](https://www.w3.org/TR/2011/WD-html-markup-20110113/syntax.html#void-element)
+  are now rendered correctly ([#2](https://github.com/lpil/htmb/pull/2))
+
 ## v1.1.0 - 2023-11-06
 
 - Updated for Gleam v0.32.0.
