@@ -30,13 +30,38 @@ pub fn h(
   attributes: List(#(String, String)),
   children: List(Html),
 ) -> Html {
-  "<"
-  |> string.append(tag)
-  |> list.fold(attributes, _, attribute)
-  |> string.append(">")
-  |> string_builder.from_string
-  |> list.fold(children, _, child)
-  |> string_builder.append("</" <> tag <> ">")
+  let opening =
+    "<"
+    |> string.append(tag)
+    |> list.fold(attributes, _, attribute)
+    |> string.append(">")
+    |> string_builder.from_string
+
+  // Void elements do not have a closing part and cannot accept children
+  // See https://www.w3.org/TR/2011/WD-html-markup-20110113/syntax.html#syntax-elements
+  case tag {
+    // See https://www.w3.org/TR/2011/WD-html-markup-20110113/syntax.html#void-elements
+    "area"
+    | "base"
+    | "br"
+    | "col"
+    | "command"
+    | "embed"
+    | "hr"
+    | "img"
+    | "input"
+    | "keygen"
+    | "link"
+    | "meta"
+    | "param"
+    | "source"
+    | "track"
+    | "wbr" -> opening
+    _ ->
+      opening
+      |> list.fold(children, _, child)
+      |> string_builder.append("</" <> tag <> ">")
+  }
   |> dangerous_unescaped_fragment
 }
 
