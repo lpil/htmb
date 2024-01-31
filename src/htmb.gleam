@@ -86,9 +86,9 @@ fn do_escape(escaped: String, content: String) -> String {
   }
 }
 
-pub fn render_page(html: Html, doctype doctype: String) -> StringBuilder {
+pub fn render_page(html: Html) -> StringBuilder {
   render(html)
-  |> string_builder.prepend("<!DOCTYPE " <> doctype <> ">")
+  |> string_builder.prepend("<!DOCTYPE html>")
 }
 
 fn attribute(content: String, attribute: #(String, String)) -> String {

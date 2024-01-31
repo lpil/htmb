@@ -34,7 +34,7 @@ pub fn page_test() {
       h("script", [], [text("console.log('Hello, Joe!');")]),
     ]),
   ])
-  |> htmb.render_page(doctype: "html")
+  |> htmb.render_page
   |> string_builder.to_string
   |> should.equal(
     "<!DOCTYPE html><html lang=\"en\"><head><title>htmb test</title><meta charset=\"utf-8\"></head><body><h1>Hello, Joe!</h1><script>console.log('Hello, Joe!');</script></body></html>",
