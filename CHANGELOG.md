@@ -1,6 +1,7 @@
 # Changelog
 
-## Unreleased
+## v2.0.0 - 2024-01-31
+
 - **[BREAKING]** The package now exclusively targets HTML5 and `render_page` no
   longer accepts the `doctype` parameter
   ([#2](https://github.com/lpil/htmb/pull/2))
