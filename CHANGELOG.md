@@ -1,7 +1,9 @@
 # Changelog
 
 ## Unreleased
-
+- **[BREAKING]** The package now exclusively targets HTML5 and `render_page` no
+  longer accepts the `doctype` parameter
+  ([#2](https://github.com/lpil/htmb/pull/2))
 - [Void elements](https://www.w3.org/TR/2011/WD-html-markup-20110113/syntax.html#void-element)
   are now rendered correctly ([#2](https://github.com/lpil/htmb/pull/2))
 
