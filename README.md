@@ -9,7 +9,7 @@ A tiny HTML builder for Gleam.
 let html = 
   h("h1", [], [text("Hello, Joe!")])
  |> render
- |> string_builder.to_string
+ |> string_tree.to_string
 assert html == "<h1>Hello, Joe!</h1>"
 ```
 
