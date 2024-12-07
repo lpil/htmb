@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.1.0 - 2024-12-07
+
+- Updated for `gleam_stdlib` v0.45.0.
+
 ## v2.0.0 - 2024-01-31
 
 - **[BREAKING]** The package now exclusively targets HTML5 and `render_page` no

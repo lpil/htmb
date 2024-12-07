@@ -1,5 +1,5 @@
 name = "htmb"
-version = "2.0.0"
+version = "2.1.0"
 gleam = ">= 0.32.0"
 description = "A tiny HTML builder for Gleam"
 licences = ["Apache-2.0"]
@@ -10,7 +10,7 @@ links = [
 ]
 
 [dependencies]
-gleam_stdlib = "~> 0.29 or ~> 1.0"
+gleam_stdlib = ">= 0.45.0 and < 2.0.0"
 
 [dev-dependencies]
 gleeunit = "~> 1.0"

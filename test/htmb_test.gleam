@@ -1,7 +1,7 @@
+import gleam/string_tree
 import gleeunit
 import gleeunit/should
 import htmb.{h, text}
-import gleam/string_builder
 
 pub fn main() {
   gleeunit.main()
@@ -10,7 +10,7 @@ pub fn main() {
 pub fn hello_joe_test() {
   h("h1", [], [text("Hello Joe!")])
   |> htmb.render
-  |> string_builder.to_string
+  |> string_tree.to_string
   |> should.equal("<h1>Hello Joe!</h1>")
 }
 
@@ -19,7 +19,7 @@ pub fn void_test() {
     text("Will not show up!"),
   ])
   |> htmb.render
-  |> string_builder.to_string
+  |> string_tree.to_string
   |> should.equal("<img src=\"/tilly.jpg\" alt=\"A perfect cat\">")
 }
 
@@ -35,7 +35,7 @@ pub fn page_test() {
     ]),
   ])
   |> htmb.render_page
-  |> string_builder.to_string
+  |> string_tree.to_string
   |> should.equal(
     "<!DOCTYPE html><html lang=\"en\"><head><title>htmb test</title><meta charset=\"utf-8\"></head><body><h1>Hello, Joe!</h1><script>console.log('Hello, Joe!');</script></body></html>",
   )
@@ -44,6 +44,6 @@ pub fn page_test() {
 pub fn escaping_test() {
   h("h1", [], [text("<script>alert('&');</script>")])
   |> htmb.render
-  |> string_builder.to_string
+  |> string_tree.to_string
   |> should.equal("<h1>&lt;script&gt;alert('&amp;');&lt;/script&gt;</h1>")
 }
